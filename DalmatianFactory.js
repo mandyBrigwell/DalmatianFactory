@@ -1,12 +1,12 @@
 import p5 from "p5";
 
-const seed=~~(fxrand()*90128);
-const noise=~~(fxrand()*90128);
+const seed=~~(fxrand()*90128); // These bits rely on the fxhash extra bits and pieces. You could replace them with Math.random()
+const noise=~~(fxrand()*90128); // Replace with Math.random() if you want this to run
 let screenSize, graphicsLayerSize;
 var graphicsLayer, buffer;
 
 let colorMode = 0;
-let hue = 60*~~(fxrand()*5);
+let hue = 60*~~(fxrand()*5); // Replace with Math.random() if you want this to run
 let hueDescription;
 if (hue == 0) {
 	hueDescription = "Carnelian";
@@ -232,6 +232,7 @@ let sketch = function(p5) {
 
 let myp5 = new p5(sketch, window.document.body);
 
+// In newer sketches, I put this bit far higher up, as soon as possible in the script
 window.$fxhashFeatures = {
   "Granularity": granularityDescription,
   "Grid size": gridDescription,
